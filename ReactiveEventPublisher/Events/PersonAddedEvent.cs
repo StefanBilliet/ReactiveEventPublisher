@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ReactiveEventPublisher
+namespace ReactiveEventPublisher.Events
 {
   public class PersonAddedEvent : AbstractEvent
   {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ReactiveEventPublisher
+namespace ReactiveEventPublisher.Events
 {
   [Serializable]
   public abstract class AbstractEvent {

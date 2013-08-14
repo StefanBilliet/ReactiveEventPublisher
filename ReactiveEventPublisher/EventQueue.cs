@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reactive.Linq;
-using NUnit.Framework;
+using ReactiveEventPublisher.Events;
 
 namespace ReactiveEventPublisher
 {
@@ -51,33 +50,5 @@ namespace ReactiveEventPublisher
     }
 
     #endregion
-  }
-
-  public class EventDispatcher : EventQueue, IObserver<AbstractEvent> {
-    public void OnNext(AbstractEvent value) {
-      Dispatch(value);
-    }
-
-    public void OnError(Exception exception) {
-      Dispatch(new ErrorEvent(exception));
-    }
-
-    public void OnCompleted() {
-    }
-  }
-
-  public class blaat
-  {
-    [Test]
-    public void BasicTest() {
-      var bus = new EventDispatcher();
-      var numCalled = 0;
-
-      bus.Subscribe(@event => Console.WriteLine("Event received: "+@event.GetType().Name));
-      bus.Dispatch(new PersonAddedEvent(Guid.NewGuid()));
-      bus.Dispatch(new EventScheduledEvent(Guid.NewGuid()));
-
-      //Assert.AreEqual(2, numCalled);
-    }
   }
 }
